@@ -2,7 +2,7 @@ describe('binarySearchTree', function() {
   var binarySearchTree;
 
   beforeEach(function() {
-    binarySearchTree = BinarySearchTree(5);
+    binarySearchTree = new BinarySearchTree(5);
   });
 
   it('should have methods named "insert", "contains", and "depthFirstLog', function() {
@@ -37,4 +37,13 @@ describe('binarySearchTree', function() {
     console.log(array);
     expect(array).to.eql([5,2,3]);
   });
+
+  it('should return an in order array of values when using "inOrder"', function(){
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(8);
+    expect(binarySearchTree.inOrder()).to.eql([2,3,4,5,6,8]);
+  })
 });
